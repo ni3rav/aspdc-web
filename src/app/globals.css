@@ -63,7 +63,24 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* styles/globals.css */
+html,body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
+/* Make sure to enable scrolling */
+html,
+body {
+  overflow: auto; /* Ensure that overflow is set to auto to allow scrolling */
 }

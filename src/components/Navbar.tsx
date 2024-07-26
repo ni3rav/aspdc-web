@@ -6,19 +6,22 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
+
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import Image from "next/image";
 
 type Props = {};
 
 const Navbar = (props: any) => {
   return (
-    <div className="h-16 w-screen flex flex-wrap items-center justify-between py-2 ">
-      <div className="flex flex-wrap items-center justify-between">ASPDC</div>
-
+    <div className="h-16 w-full flex flex-wrap items-center justify-between py-2 bg-zinc-950">
+      <div className="w-28 h-full flex items-center justify-center">
+        <Image src="/logo.png" alt="aspdc logo" width={100} height={100} />
+      </div>
       <div>
         <NavigationMenu>
           <NavigationMenuList className="flex flex-wrap gap-2">
-            <NavigationMenuItem className="bg-[#0a0a0a]">
+            <NavigationMenuItem>
               <Link href="/docs" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Events
@@ -26,7 +29,7 @@ const Navbar = (props: any) => {
               </Link>
             </NavigationMenuItem>
 
-            <NavigationMenuItem className="bg-[#0a0a0a]">
+            <NavigationMenuItem>
               <Link href="/docs" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Leaderboard
@@ -37,9 +40,9 @@ const Navbar = (props: any) => {
         </NavigationMenu>
       </div>
 
-      <NavigationMenu>
+      <NavigationMenu className="mr-5">
         <NavigationMenuList>
-          <NavigationMenuItem className="bg-[#0a0a0a]">
+          <NavigationMenuItem>
             <Link href="/docs" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 LogIn
