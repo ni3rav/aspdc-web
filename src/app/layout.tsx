@@ -1,7 +1,9 @@
 import "@/app/globals.css";
 import { Inter as FontSans } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
 
 import { cn } from "@/lib/utils";
+import Navbar from "@/components/Navbar";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -18,7 +20,18 @@ export default function RootLayout({ children }: any) {
           fontSans.variable
         )}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar/>
+          {children}
+          <>
+          Hello guysz
+          </>
+        </ThemeProvider>
       </body>
     </html>
   );
