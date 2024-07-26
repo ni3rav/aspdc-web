@@ -10,22 +10,24 @@ import Link from "next/link";
 type EventCardProps = {
 	id: number;
 	title: string;
-	description: string;
+	location: string;
+	description?: string;
 	date: string;
 };
 
-export function EventCard({ id, title, description, date }: EventCardProps) {
+export function EventCard({ id, title, location, date }: EventCardProps) {
 	return (
 		<div className="flex py-5 px-5 items-center justify-center antialiased">
 			<GlowingStarsBackgroundCard>
 				<GlowingStarsTitle>{title}</GlowingStarsTitle>
 				<div className="flex justify-between items-end">
 					<GlowingStarsDescription>
-						{description}
+						{location}
 						<br />
 						{date}
 					</GlowingStarsDescription>
 					<div className="h-8 w-8 rounded-full bg-[hsla(0,0%,100%,.1)] flex items-center justify-center">
+						{/* todo open a modal using parallel routes here */}
 						<Icon navLink={`/events/${id}`} />
 					</div>
 				</div>

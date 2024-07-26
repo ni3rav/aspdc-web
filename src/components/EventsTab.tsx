@@ -15,12 +15,14 @@ const dummyEventsData = {
 			title: "Upcoming Event 1",
 			date: "2023-01-01",
 			location: "Online",
+			description: "This is a description of the event",
 		},
 		{
 			id: 4,
 			title: "Upcoming Event 2",
 			date: "2023-01-02",
 			location: "Online on codeforces.com, yes fr",
+			description: "This is a description of the event",
 		},
 	],
 	past: [
@@ -29,12 +31,14 @@ const dummyEventsData = {
 			title: "Past Event 1",
 			date: "2022-01-01",
 			location: "Online",
+			description: "This is a description of the event",
 		},
 		{
 			id: 2,
 			title: "Past Event 2",
 			date: "2022-01-02",
 			location: "Online",
+			description: "This is a description of the event",
 		},
 	],
 }
@@ -55,7 +59,7 @@ export function EventsTab() {
 							key={index}
 							id={event.id}
 							title={event.title}
-							description={event.location}
+							location={event.location}
 							date={event.date}
 						/>
 					))}
@@ -69,7 +73,7 @@ export function EventsTab() {
 							key={index}
 							id={event.id}
 							title={event.title}
-							description={event.location}
+							location={event.location}
 							date={event.date}
 						/>
 					))}
