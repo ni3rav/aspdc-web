@@ -11,8 +11,8 @@ const fontSans = FontSans({
 
 export const metadata = {
   title: {
-    default: "Your Name or Site Name",
-    template: "%s | Your Name",
+    default: "ASPDC",
+    template: "%s | ASPDC",
   },
   description: "The official protal of ASPDC",
   keywords: ["aspdc", "adani", "student", "programming", "coding"],
