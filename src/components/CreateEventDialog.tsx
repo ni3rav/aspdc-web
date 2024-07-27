@@ -59,7 +59,7 @@ export function CreateEventDialog() {
 			<TypographyH2>Create an Event</TypographyH2>
 
 			<Form {...form}>
-				<form action={formAction} className="space-y-8">
+				<form action={formAction} className="space-y-8 mt-4">
 					<FormField
 						control={form.control}
 						name="eventID"

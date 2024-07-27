@@ -16,6 +16,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { authenticateAdmin } from "@/lib/admin"
 import { useFormState } from "react-dom"
+import { TypographyH1 } from "./ui/typography"
 
 const formSchema = z.object({
 	username: z.string().min(4, "Username must be atleast 4 characters.").max(10, "Username must not exceed 10 characters."),
@@ -37,7 +38,8 @@ export function AdminLogin() {
 
 	const [state, formAction] = useFormState(authenticateAdmin, initialState)
 
-	return (<div className="p-4 m-4">
+	return (<div className="p-4 m-4">	
+		<TypographyH1> Admin Login </TypographyH1>
 		<Form {...form}>
 			<form action={formAction} className="space-y-8">
 				<FormField
