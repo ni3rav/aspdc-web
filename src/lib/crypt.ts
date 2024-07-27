@@ -33,3 +33,9 @@ export function decrypt(text: string) {
 	]);
 	return decryptedCookie.toString();
 }
+
+export function hash(text: string) {
+	return crypto.createHash('sha256').
+		update(text).
+		digest('hex')
+}
