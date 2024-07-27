@@ -13,14 +13,14 @@ type AdminCookie = {
 	password: string
 }
 
-export async function deauthenticateAdmin(prevState: any) {
+export async function deauthenticateAdmin() {
 	cookies().delete("admin")
 	revalidatePath("/admin")
 }
 
 export async function verifyAdmin(): Promise<string | null> {
 	const adminCookie = cookies().get("admin")
-	if (!adminCookie) {
+	if (!adminCookie || !adminCookie.value) {
 		return null
 	}
 
