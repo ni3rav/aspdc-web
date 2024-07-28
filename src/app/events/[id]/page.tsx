@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import dbConnect from "@/lib/db";
 import Events, {Events as EventType} from "@/models/Event";
 
+// todo generate metadata
+
 export default async function Page({params}: {params: {id: number}}) {
 	await dbConnect();
 	const event: EventType | null = await Events.findOne({id: params.id})

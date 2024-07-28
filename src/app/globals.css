@@ -83,4 +83,7 @@ html::-webkit-scrollbar {
 html,
 body {
   overflow: auto; /* Ensure that overflow is set to auto to allow scrolling */
+  margin: 0;
+  padding: 0;
+  /* height: 100%; */
 }

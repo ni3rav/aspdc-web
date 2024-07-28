@@ -16,13 +16,15 @@ const Navbar = (props: any) => {
   return (
     <div className="h-16 w-full flex flex-wrap items-center justify-between py-2 bg-zinc-950">
       <div className="w-28 h-full flex items-center justify-center">
-        <Image src="/logo.png" alt="aspdc logo" width={100} height={100} />
+        <Link href="/">
+          <Image src="/logo.png" alt="aspdc logo" width={100} height={100} />
+        </Link>
       </div>
       <div>
         <NavigationMenu>
           <NavigationMenuList className="flex flex-wrap gap-2">
             <NavigationMenuItem>
-              <Link href="/docs" legacyBehavior passHref>
+              <Link href="/events" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Events
                 </NavigationMenuLink>
@@ -30,7 +32,7 @@ const Navbar = (props: any) => {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <Link href="/docs" legacyBehavior passHref>
+              <Link href="/leaderboard" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Leaderboard
                 </NavigationMenuLink>
@@ -45,7 +47,7 @@ const Navbar = (props: any) => {
           <NavigationMenuItem>
             <Link href="/docs" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                LogIn
+                Log In
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
