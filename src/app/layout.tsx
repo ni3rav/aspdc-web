@@ -4,18 +4,19 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Metadata } from "next";
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
     default: "ASPDC",
     template: "%s | ASPDC",
   },
-  description: "The official protal of ASPDC",
+  description: "The official portal of ASPDC",
   keywords: ["aspdc", "adani", "student", "programming", "coding"],
   twitter: {
     site: "@aspdc_club",
@@ -25,6 +26,23 @@ export const metadata = {
     linkedin: "https://www.linkedin.com/company/adani-student-programming-and-development-club/",
     youtube: "https://www.youtube.com/@clubaspd",
   },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://aspdc.vercel.app",
+    title: "ASPDC",
+    description: "The official portal of ASPDC.",
+    images: [
+      {
+        url: "https://aspdc.vercel.app/logo.png",
+        alt: "ASPDC",
+      },
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  }
 }; 
 
 export default function RootLayout({ children }: any) {
