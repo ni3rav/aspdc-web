@@ -3,7 +3,6 @@
 import {
 	Form,
 	FormControl,
-	FormDescription,
 	FormField,
 	FormItem,
 	FormLabel,
@@ -54,6 +53,7 @@ export function CreateEventDialog() {
 	})
 
 	const [state, formAction, pending] = useFormState(createEvent, initialState)
+	// todo replace date with datetime
 
 	return (
 		<div className="m-4 p-2 ml-0 pl-0">

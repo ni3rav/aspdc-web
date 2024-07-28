@@ -26,7 +26,7 @@ export function EventCard({ id, title, location, date }: EventCardProps) {
 						<br />
 						{date}
 					</GlowingStarsDescription>
-					<div className="h-8 w-8 rounded-full bg-[hsla(0,0%,100%,.1)] flex items-center justify-center">
+					<div className="ml-2 h-8 w-8 rounded-full bg-[hsla(0,0%,100%,.1)] flex items-center justify-center">
 						{/* todo open a modal using parallel routes here */}
 						<Icon navLink={`/events/${id}`} />
 					</div>
