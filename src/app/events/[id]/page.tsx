@@ -10,6 +10,7 @@ export default async function Page({params}: {params: {id: number}}) {
 		return notFound();
 	}
 
+	// todo create a component to show the event details
 	return (
 		<div>
 			<h1>{event.title}</h1>

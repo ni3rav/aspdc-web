@@ -23,7 +23,7 @@ import { useFormState } from "react-dom"
 import { TypographyH2 } from "@/components/ui/typography"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { cn } from "@/lib/utils"
-import { CalendarIcon } from "lucide-react"
+import { CalendarIcon, Loader2 } from "lucide-react"
 import { Calendar } from "./ui/calendar"
 
 
@@ -36,7 +36,8 @@ const formSchema = z.object({
 })
 
 const initialState = {
-	error: ""
+	error: "",
+	message: ""
 }
 
 
@@ -52,7 +53,7 @@ export function CreateEventDialog() {
 		}
 	})
 
-	const [state, formAction] = useFormState(createEvent, initialState)
+	const [state, formAction, pending] = useFormState(createEvent, initialState)
 
 	return (
 		<div className="m-4 p-2 ml-0 pl-0">
@@ -160,7 +161,9 @@ export function CreateEventDialog() {
 						)}
 					/>
 
-					<Button type="submit">Submit</Button>
+					{state.error && <FormMessage className="text-xl">error: {state.error}</FormMessage>}
+					{state.message && <FormMessage className="text-xl text-green-400">message: {state.message}</FormMessage>}
+					<Button type="submit" disabled={pending}> {pending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />} Submit</Button>
 				</form>
 			</Form>
 		</div>

@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button"
 import {
 	Tabs,
 	TabsContent,
@@ -7,43 +6,27 @@ import {
 } from "@/components/ui/tabs"
 
 import { EventCard } from "@/components/EventCard"
+import dbConnect from "@/lib/db"
+import Event, {Events as EventType} from "@/models/Event"
 
-const dummyEventsData = {
-	upcoming: [
-		{
-			id: 3,
-			title: "Upcoming Event 1",
-			date: "2023-01-01",
-			location: "Online",
-			description: "This is a description of the event",
-		},
-		{
-			id: 4,
-			title: "Upcoming Event 2",
-			date: "2023-01-02",
-			location: "Online on codeforces.com, yes fr",
-			description: "This is a description of the event",
-		},
-	],
-	past: [
-		{
-			id: 1,
-			title: "Past Event 1",
-			date: "2022-01-01",
-			location: "Online",
-			description: "This is a description of the event",
-		},
-		{
-			id: 2,
-			title: "Past Event 2",
-			date: "2022-01-02",
-			location: "Online",
-			description: "This is a description of the event",
-		},
-	],
-}
+export async function EventsTab() {
+	await dbConnect()
 
-export function EventsTab() {
+	const allEvents: EventType[] = await Event.find({})
+	const dateMappedEvents = allEvents.map(event => {
+		const date = new Date(event.date)
+		return {
+			id: event.id,
+			title: event.title,
+			location: event.location,
+			date: date
+		}
+	})
+	
+	const now = new Date()
+	const upcomingEvents = dateMappedEvents.filter(event => event.date >= now)
+	const pastEvents = dateMappedEvents.filter(event => event.date < now)
+
 	return (
 		<Tabs defaultValue="upcoming" className="w-full">
 
@@ -54,13 +37,13 @@ export function EventsTab() {
 
 			<TabsContent value="upcoming">
 				<div className="flex flex-row flex-wrap w-full">
-					{dummyEventsData.upcoming.map((event, index) => (
+					{upcomingEvents.map((event, index) => (
 						<EventCard
 							key={index}
 							id={event.id}
 							title={event.title}
 							location={event.location}
-							date={event.date}
+							date={event.date.toLocaleString()}
 						/>
 					))}
 				</div>
@@ -68,13 +51,13 @@ export function EventsTab() {
 
 			<TabsContent value="past">
 				<div className="flex flex-row flex-wrap w-full">
-					{dummyEventsData.past.map((event, index) => (
+					{pastEvents.map((event, index) => (
 						<EventCard
 							key={index}
 							id={event.id}
 							title={event.title}
 							location={event.location}
-							date={event.date}
+							date={event.date.toLocaleString()}
 						/>
 					))}
 				</div>
