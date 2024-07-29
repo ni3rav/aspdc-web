@@ -28,7 +28,7 @@ export async function EventsTab() {
 	const pastEvents = dateMappedEvents.filter(event => event.date < now)
 
 	return (
-		<Tabs defaultValue="upcoming" className="w-full">
+		<Tabs defaultValue="upcoming" className="w-full h-[calc(100vh-4rem)]">
 
 			<TabsList className="grid w-full grid-cols-2">
 				<TabsTrigger value="upcoming">Upcoming Events</TabsTrigger>
