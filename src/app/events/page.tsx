@@ -7,6 +7,8 @@ export const metadata: Metadata = {
 	keywords: ["events", "community", "aspdc"],
 };
 
+export const dynamic = "force-dynamic"
+
 export default function Page() {
 	return <EventsTab />;
 }

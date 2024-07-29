@@ -7,7 +7,6 @@ import { DeleteEventDialog } from "@/components/DeleteEventDialog";
 import { deauthenticateAdmin } from "@/lib/admin";
 
 export async function AdminPanel({username}: {username: string}) {
-	// todo delete event dialog
 	return (
 		<div className="m-4 p-2 flex flex-col flex-wrap justify-center">
 			<div className="flex flex-row items-center justify-between">
