@@ -50,7 +50,9 @@ export const viewport = "width=device-width, initial-scale=1.0";
 export default function RootLayout({ children }: any) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
+      <head >
+        {process.env.NODE_ENV === "production" && (<script src="https://cdn.counter.dev/script.js" data-id="9a8f41ff-bef4-4693-978c-4ec6b9295102" data-utcoffset="6" />)}
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
