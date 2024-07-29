@@ -3,7 +3,7 @@ import { TypographyH1 } from "@/components/ui/typography"
 
 export async function EventPage({ event }: { event: EventType }) {
 	return (
-		<div className="min-h-[calc(100vh-4rem)] bg-gradient-to-br from-gray-600 to-green-500 text-white">
+		<div className="min-h-[calc(100vh-4rem)] bg-gradient-to-br from-gray-600 to-green-800 text-white">
 			<header className="py-6 px-4 sm:px-6 lg:px-8">
 				<h1 className="text-4xl font-bold text-center">{event.title}</h1>
 			</header>

@@ -48,7 +48,6 @@ export default async function Page({ params }: { params: { id: number } }) {
 		day: 'numeric'
 	})
 
-	// todo create a component to show the event details
 	return (
 		<EventPage event={event} />
 	)
