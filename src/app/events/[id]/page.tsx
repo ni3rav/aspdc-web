@@ -5,7 +5,7 @@ import Events, {Events as EventType} from "@/models/Event";
 import { cache } from 'react'
 import { Metadata, ResolvingMetadata } from "next";
 
-export const getEvent = cache(async (id: number) => {
+const getEvent = cache(async (id: number) => {
 	await dbConnect()
 	const item = await Events.findOne({id: id})
 	return item
