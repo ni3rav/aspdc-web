@@ -137,6 +137,7 @@ export function CreateEventDialog() {
 											disabled={(date) =>
 												date < new Date("2000-01-01")
 											}
+											initialFocus
 										/>
 									</PopoverContent>
 								</Popover>
