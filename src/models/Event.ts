@@ -6,6 +6,9 @@ export interface Events extends mongoose.Document {
 	description: string;
 	location: string;
 	date: string;
+	cta_text: string | null;
+	cta_link: string | null;
+	image_link: string | null;
 }
 
 /* PetSchema will correspond to a collection in your MongoDB database. */
@@ -31,6 +34,18 @@ const EventSchema = new mongoose.Schema<Events>({
 	date: {
 		type: String,
 		required: [true, "Please specify the event date."]
+	},
+	cta_text: {
+		type: String,
+		required: false,
+	},
+	cta_link: {
+		type: String,
+		required: false,
+	},
+	image_link: {
+		type: String,
+		required: false,
 	}
 });
 

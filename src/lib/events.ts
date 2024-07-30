@@ -17,9 +17,13 @@ export async function createEvent(prevState:any, eventData: FormData) {
 			location: eventData.get("location")?.toString() || "",
 			date: eventData.get("date")?.toString(),
 			description: eventData.get("description")?.toString(),
+			cta_text: eventData.get("cta_text")?.toString() || null,
+			cta_link: eventData.get("cta_link")?.toString() || null,
+			image_link: eventData.get("image_link")?.toString() || null,
 		}
+		const notRequired = ["cta_text", "cta_link", "image_link"]
 		for (const [key, value] of Object.entries(eventDetails)) {
-			if (!value) {
+			if (!value && !notRequired.includes(key)) {
 				return {error: `${key} is required`, message: ""}
 			}
 		}

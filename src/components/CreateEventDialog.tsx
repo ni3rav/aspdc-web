@@ -31,7 +31,10 @@ const formSchema = z.object({
 	title: z.string(),
 	location: z.string().min(4, "Location must be atleast 4 characters."),
 	date: z.date({ required_error: "A date must be given." }),
-	description: z.string()
+	description: z.string(),
+	cta_text: z.string().optional(),
+	cta_link: z.string().optional(),
+	image_link: z.string().optional(),
 })
 
 const initialState = {
@@ -48,7 +51,10 @@ export function CreateEventDialog() {
 			title: "",
 			location: "",
 			date: new Date(),
-			description: ""
+			description: "",
+			cta_text: "",
+			cta_link: "",
+			image_link: "",
 		}
 	})
 
@@ -155,6 +161,48 @@ export function CreateEventDialog() {
 								<br />
 								<FormControl>
 									<Textarea placeholder="What's the event about?" {...field} />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+
+					<FormField
+						control={form.control}
+						name="cta_text"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>CTA Text</FormLabel>
+								<FormControl>
+									<Input placeholder="What should the CTA button say?" {...field} />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+
+					<FormField
+						control={form.control}
+						name="cta_link"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>CTA Link</FormLabel>
+								<FormControl>
+									<Input placeholder="Where should the button point to?" {...field} />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+
+					<FormField
+						control={form.control}
+						name="image_link"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>Image Link</FormLabel>
+								<FormControl>
+									<Input placeholder="Link to the event image" {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
