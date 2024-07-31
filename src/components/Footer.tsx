@@ -1,25 +1,45 @@
 import React from "react";
-import { Github, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
 
 const Footer = () => {
+  const footerLinks = [
+    {
+      title: "Twitter",
+      href: "https://x.com/aspdc_club",
+    },
+    {
+      title: "LinkedIn",
+      href: "https://www.linkedin.com/company/adani-student-programming-and-development-club/ ",
+    },
+    {
+      title: "Github",
+      href: "https://github.com/aspdc",
+    },
+    {
+      title: "Youtube",
+      href: "https://www.youtube.com/@clubaspd",
+    },
+  ];
+
   return (
-    <div className="flex flex-row items-center justify-center flex-wrap h-24">
-      <div className="flex flex-wrap items-center justify-center h-1/3 w-1/2 text-lg">
-        Made with 😻 by Team ASPDC
+    <section className="m-4 rounded-lg shadow bg-zinc-900">
+      <div className="mx-auto w-full max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+        <span className="text-sm sm:text-center text-zinc-300 font-bold">
+          Made with 😻 by Team ASPDC
+        </span>
+        <ul className="mt-3 flex flex-wrap items-center text-md font-medium sm:mt-0 text-zinc-300">
+          {footerLinks.map((item) => {
+            return (
+              <li key={item.title}>
+                <Link href={item.href} className="me-4 hover:text-zinc-600 md:me-6 transition-all ease-in-out duration-100">
+                  {item.title}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </div>
-      <div className="flex flex-wrap items-center gap-10 justify-center h-2/3 w-1/2 text-lg">
-        <Link href="https://github.com/aspdc">
-          <Github size={28} />
-        </Link>
-        <Link href="https://x.com/aspdc_club">
-          <Twitter size={28} />
-        </Link>
-        <Link href="https://www.linkedin.com/company/adani-student-programming-and-development-club/">
-          <Linkedin size={28} />
-        </Link>
-      </div>
-    </div>
+    </section>
   );
 };
 
