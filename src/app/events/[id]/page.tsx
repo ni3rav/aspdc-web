@@ -31,9 +31,6 @@ export async function generateMetadata(
 	}
 }
 
-// todo maybe add images for the event
-// todo maybe add speakers for the event
-
 export default async function Page({ params }: { params: { id: number } }) {
 	await dbConnect();
 	const event: EventType | null = await getEvent(params.id);
