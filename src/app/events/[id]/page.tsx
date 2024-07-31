@@ -7,27 +7,37 @@ import { cache } from 'react'
 import { Metadata, ResolvingMetadata } from "next";
 
 const getEvent = cache(async (id: number) => {
-	await dbConnect()
-	const item = await Events.findOne({ id: id })
-	return item
+	try {
+		await dbConnect()
+		const item = await Events.findOne({ id: id })
+		return item
+	} catch (error) {
+		console.error(error)
+		return null
+	}
 })
 
 export async function generateMetadata(
 	{ params }: { params: { id: number } },
 	parent: ResolvingMetadata
 ): Promise<Metadata> {
-	// read route params
-	const id = params.id
-
-	// fetch data
-	const event = await getEvent(id)
-	if (!event) {
+	try {
+		// read route params
+		const id = params.id
+	
+		// fetch data
+		const event = await getEvent(id)
+		if (!event) {
+			return { title: 'Event not found', description: 'This event does not exist' }
+		}
+	
+		return {
+			title: `${event.title} | Events`,
+			description: event.description,
+		}
+	} catch (error) {
+		console.error(error)
 		return { title: 'Event not found', description: 'This event does not exist' }
-	}
-
-	return {
-		title: `${event.title} | Events`,
-		description: event.description,
 	}
 }
 
