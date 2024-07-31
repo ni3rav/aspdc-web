@@ -10,7 +10,7 @@ export async function EventPage({ event }: { event: EventType }) {
 
 			<main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
 				{event.image_link && (
-					<section className="mb-12">
+					<section className="mb-12 flex justify-center items-center">
 						<img src={event.image_link} alt={`poster for ${event.title}`} className="object-cover rounded-lg" />
 					</section>
 				)}

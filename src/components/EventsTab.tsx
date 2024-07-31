@@ -24,8 +24,13 @@ export async function EventsTab() {
 	})
 	
 	const now = new Date()
-	const upcomingEvents = dateMappedEvents.filter(event => event.date >= now)
-	const pastEvents = dateMappedEvents.filter(event => event.date < now)
+	const upcomingEvents = dateMappedEvents.
+		filter(event => event.date >= now).
+		sort((a, b) => a.date.getTime() - b.date.getTime())
+
+	const pastEvents = dateMappedEvents.
+		filter(event => event.date < now).
+		sort((a, b) => b.date.getTime() - a.date.getTime())
 
 	return (
 		<Tabs defaultValue="upcoming" className="w-full h-[calc(100vh-4rem)]">
