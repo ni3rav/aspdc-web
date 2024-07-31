@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function Navbar() {
   return (
     <section className="w-full h-16 flex items-center justify-center bg">
-      <div className="flex h-[80%] w-[98%] items-center justify-between px-4 md:px-6 rounded-lg bg-zinc-900">
+      <div className="flex h-[84%] w-[99%] items-center justify-between px-4 md:px-6 rounded-lg bg-zinc-900">
         <Link
           href="/"
           className="flex items-center gap-2 hover:text-zinc-600"
