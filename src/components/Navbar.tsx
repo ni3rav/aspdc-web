@@ -1,118 +1,110 @@
 "use client";
-import React from "react";
 import Link from "next/link";
+import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
 
-const menuItems = [
-  {
-    name: "Events",
-    href: "/events",
-  },
-  {
-    name: "Leaderboard",
-    href: "/leaderboard",
-  },
-];
-
-const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
+export default function Navbar() {
   return (
-    <section>
-      <div className="relative w-full h-[4rem] py-2">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
-          <Link href="/" className="inline-flex items-center space-x-2">
-            <span>
-              <Image width="30" height="30" src="/logo.png" alt="womp womp" />
-            </span>
-            <span className="font-bold">ASPDC</span>
+    <section className="w-full h-16 flex items-center justify-center bg">
+      <div className="flex h-[80%] w-[98%] items-center justify-between px-4 md:px-6 rounded-lg bg-zinc-900">
+        <Link
+          href="/"
+          className="flex items-center gap-2 hover:text-zinc-600"
+          prefetch={false}
+        >
+          {/* <MountainIcon className="h-6 w-6 text-zinc-300 hover:text-zinc-600" /> */}
+          <div className="h-6 w-6">
+            <Image src="/logo.png" alt="womp womp" height={100} width={100} />
+          </div>
+          <span className="text-2xl font-bold text-zinc-300 hover:text-zinc-600">
+            ASPDC
+          </span>
+        </Link>
+        <nav className="hidden items-center gap-4 md:flex">
+          <Link
+            href="/events"
+            className="text-lg font-bold transition-colors text-zinc-300 hover:text-zinc-600 hover:text-primary mr-4"
+            prefetch={false}
+          >
+            Events
           </Link>
-          <div className="hidden grow items-start lg:flex">
-            <ul className="ml-12 inline-flex space-x-8">
-              {menuItems.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-sm font-semibold text-white hover:text-gray-500 transition-all ease-in-out duration-50"
-                  >
-                    {" "}
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <button className="hidden lg:block">
-            <Link href="/login">
-              <span className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:text-gray-500 hover:bg-zinc-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black transition-all ease-in-out duration-50">
-                LogIn
-              </span>
-            </Link>
-          </button>
-          <div className="lg:hidden">
-            <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
-          </div>
-          {isMenuOpen && (
-            <div className="absolute inset-x-0 top-0 z-50 origin-top-right transform p-2 transition lg:hidden">
-              <div className="divide-y-2 divide-gray-50 rounded-lg bg-zinc-950 shadow-lg ring-1 ring-black ring-opacity-5">
-                <div className="px-5 pb-6 pt-5">
-                  <div className="flex items-center justify-between">
-                    <div className="inline-flex items-center space-x-2">
-                      <span>
-                        <Image
-                          width="30"
-                          height="30"
-                          src="/logo.png"
-                          alt="womp womp"
-                        />
-                      </span>
-                      <span className="font-bold">ASPDC</span>
-                    </div>
-                    <div className="-mr-2">
-                      <button
-                        type="button"
-                        onClick={toggleMenu}
-                        className="inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-zinc-600 hover:text-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                      >
-                        <span className="sr-only">Close menu</span>
-                        <X className="h-6 w-6" aria-hidden="true" />
-                      </button>
-                    </div>
-                  </div>
-                  <div className="mt-6">
-                    <nav className="grid gap-y-4">
-                      {menuItems.map((item) => (
-                        <Link
-                          key={item.name}
-                          href={item.href}
-                          className="-m-3 flex items-center rounded-md p-3 text-sm font-semibold hover:bg-zinc-600"
-                        >
-                          <span className="ml-3 text-base font-medium text-white">
-                            {item.name}
-                          </span>
-                        </Link>
-                      ))}
-                    </nav>
-                  </div>
-                  <button
-                    type="button"
-                    className="mt-4 w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:text-gray-500 hover:bg-zinc-600  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black transition-all ease-in-out duration-50"
-                  >
-                    <Link href="/login">LogIn</Link>
-                  </button>
-                </div>
-              </div>
+          <Link
+            href="/leaderboard"
+            className="text-lg font-bold transition-colors text-zinc-300 hover:text-zinc-600 hover:text-primary"
+            prefetch={false}
+          >
+            Leaderboard
+          </Link>
+        </nav>
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button variant="outline" size="icon" className="md:hidden">
+              <MenuIcon className="h-6 w-6 text-zinc-300 hover:text-zinc-600" />
+              <span className="sr-only">Toggle navigation menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right" className="w-[200px] bg-zinc-900">
+            <div className="grid gap-4 p-4">
+              <Link
+                href="#"
+                className="text-lg font-bold transition-colors text-zinc-300 hover:text-zinc-600 hover:text-primary"
+                prefetch={false}
+              >
+                About
+              </Link>
+              <Link
+                href="#"
+                className="text-lg font-bold transition-colors text-zinc-300 hover:text-zinc-600 hover:text-primary"
+                prefetch={false}
+              >
+                Contact
+              </Link>
             </div>
-          )}
-        </div>
+          </SheetContent>
+        </Sheet>
       </div>
     </section>
   );
-};
+}
 
-export default Navbar;
+function MenuIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <line x1="4" x2="20" y1="12" y2="12" />
+      <line x1="4" x2="20" y1="6" y2="6" />
+      <line x1="4" x2="20" y1="18" y2="18" />
+    </svg>
+  );
+}
+
+function XIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M18 6 6 18" />
+      <path d="m6 6 12 12" />
+    </svg>
+  );
+}
