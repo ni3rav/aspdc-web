@@ -42,18 +42,18 @@ export default function Navbar() {
           <SheetContent side="right" className="w-[200px] bg-zinc-900">
             <div className="grid gap-4 p-4">
               <Link
-                href="#"
+                href="/leaderboard"
                 className="text-lg font-bold transition-colors text-zinc-300 hover:text-zinc-600 hover:text-primary"
                 prefetch={false}
               >
-                About
+                Leaderboard
               </Link>
               <Link
-                href="#"
+                href="/events"
                 className="text-lg font-bold transition-colors text-zinc-300 hover:text-zinc-600 hover:text-primary"
                 prefetch={false}
               >
-                Contact
+                Events
               </Link>
             </div>
           </SheetContent>
