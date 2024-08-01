@@ -11,7 +11,7 @@ import {
 
 const Leaderboard = () => {
   return (
-    <div className="w-full h-[calc(100vh-4rem)] flex items-center justify-center px-36">
+    <div className="w-full h-[calc(100vh-4rem)] flex items-center justify-center p-2 overflow-y-scroll">
       <Table>
         <TableCaption>
           These rankings are based on contests conducted in ASPDC's Codeforces
