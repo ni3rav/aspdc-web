@@ -1,4 +1,5 @@
 import clientPromise from './mongodb';
+import {User} from '@/lib/types/User'
 
 export async function fetchLeaderboard() {
   try {
@@ -11,11 +12,12 @@ export async function fetchLeaderboard() {
       .toArray();
 
     const rankedLeaderboard = leaderboard.map((user, index) => ({
-      ...user,
+      username: user.username,
+      rating: user.rating,
       rank: index + 1,
     }));
 
-    return rankedLeaderboard;
+    return rankedLeaderboard as User[];
   } catch (error) {
     console.error('Error fetching leaderboard:', error);
     return [];

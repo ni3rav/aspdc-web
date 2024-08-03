@@ -8,13 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-
-interface User {
-  _id: string;
-  username: string;
-  rating: number;
-  rank: number;
-}
+import { User } from "@/lib/types/User";
 
 interface LeaderboardProps {
   users: User[];
@@ -25,7 +19,8 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ users }) => {
     <div className="p-4">
       <Table>
         <TableCaption>
-          These rankings display where you stand in ASPDC codeforces group by the means of your overall rating. Rankings are updated every 24 hours
+          These rankings display where you stand in ASPDC codeforces group by
+          the means of your overall rating. Rankings are updated every 24 hours
         </TableCaption>
         <TableHeader>
           <TableRow>
@@ -36,7 +31,7 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ users }) => {
         </TableHeader>
         <TableBody>
           {users.map((user) => (
-            <TableRow key={user._id}>
+            <TableRow key={user.rank}>
               <TableCell className="font-medium">{user.rank}</TableCell>
               <TableCell>{user.username}</TableCell>
               <TableCell className="text-right">{user.rating}</TableCell>
