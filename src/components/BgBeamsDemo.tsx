@@ -11,10 +11,9 @@ export function BackgroundBeamsDemo() {
         </h1>
         <p></p>
         <p className="text-neutral-500 max-w-lg mx-auto my-2 text-sm text-center relative z-10">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, magni
-          animi dolorem ipsam ipsa, ad vitae non quis repellendus tempora unde
-          inventore suscipit doloribus provident. Rerum voluptatibus voluptate
-          nisi dolore.
+          Whether you're just starting out on your coding journey or you're a
+          seasoned pro, we welcome you with open arms and look forward to seeing
+          all that you'll accomplish as a member of our community.
         </p>
       </div>
       <BackgroundBeams />

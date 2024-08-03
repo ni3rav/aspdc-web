@@ -33,7 +33,7 @@ export async function EventsTab() {
 		sort((a, b) => b.date.getTime() - a.date.getTime())
 
 	return (
-		<Tabs defaultValue="upcoming" className="w-full h-[calc(100vh-4rem)]">
+		<Tabs defaultValue="upcoming" className="w-full h-full">
 
 			<TabsList className="grid w-full grid-cols-2">
 				<TabsTrigger value="upcoming">Upcoming Events</TabsTrigger>
