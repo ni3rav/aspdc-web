@@ -1,5 +1,6 @@
 import Leaderboard from "@/components/Leaderboard";
 import { Metadata } from "next";
+import { fetchLeaderboard } from "@/lib/fetchLeaderboard";
 
 export const metadata: Metadata = {
   title: "Leaderboard",
@@ -8,6 +9,8 @@ export const metadata: Metadata = {
   keywords: ["leaderboard", "leaderboard", "community", "contests"],
 };
 
-export default function page() {
-  return <Leaderboard />;
+export default async function page() {
+  const users = await fetchLeaderboard();
+
+  return <Leaderboard users={users} />;
 }
