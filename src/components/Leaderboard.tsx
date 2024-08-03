@@ -8,30 +8,35 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { User } from "@/lib/types/User";
 
-const Leaderboard = () => {
+interface LeaderboardProps {
+  users: User[];
+}
+
+const Leaderboard: React.FC<LeaderboardProps> = ({ users }) => {
   return (
-    <div className="w-full h-[calc(100vh-4rem)] flex items-center justify-center p-2 overflow-y-scroll">
+    <div className="p-4">
       <Table>
         <TableCaption>
-          These rankings are based on contests conducted in ASPDC's Codeforces
-          group.
+          These rankings display where you stand in ASPDC codeforces group by
+          the means of your overall rating. Rankings are updated every 24 hours
         </TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[100px]">Ranking</TableHead>
+            <TableHead className="w-[100px]">Rank</TableHead>
             <TableHead>Username</TableHead>
             <TableHead className="text-right">Rating</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {/* this the part where we'll map over the data recieved by the API */}
-          <TableRow>
-            <TableCell className="font-medium">INV001</TableCell>
-            <TableCell>Credit Card</TableCell>
-            <TableCell className="text-right">$250.00</TableCell>
-          </TableRow>
-          {/* <--------------------fin----------------------> */}
+          {users.map((user) => (
+            <TableRow key={user.rank}>
+              <TableCell className="font-medium">{user.rank}</TableCell>
+              <TableCell>{user.username}</TableCell>
+              <TableCell className="text-right">{user.rating}</TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </div>
