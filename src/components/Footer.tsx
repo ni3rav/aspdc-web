@@ -4,6 +4,10 @@ import Link from "next/link";
 const Footer = () => {
   const footerLinks = [
     {
+      title: "Discord",
+      href: "https://discord.gg/h8PWuJVXWF",
+    },
+    {
       title: "Twitter",
       href: "https://x.com/aspdc_club",
     },
@@ -31,7 +35,10 @@ const Footer = () => {
           {footerLinks.map((item) => {
             return (
               <li key={item.title}>
-                <Link href={item.href} className="me-4 hover:text-zinc-600 md:me-6 transition-all ease-in-out duration-100">
+                <Link
+                  href={item.href}
+                  className="me-4 hover:text-zinc-600 md:me-6 transition-all ease-in-out duration-100"
+                >
                   {item.title}
                 </Link>
               </li>
