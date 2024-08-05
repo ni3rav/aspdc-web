@@ -1,5 +1,5 @@
 import "@/app/globals.css";
-import { Inter as FontSans } from "next/font/google";
+import { Montserrat as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
