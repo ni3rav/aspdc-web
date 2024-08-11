@@ -2,6 +2,8 @@ import Leaderboard from "@/components/Leaderboard";
 import { Metadata } from "next";
 import { fetchLeaderboard } from "@/lib/fetchLeaderboard";
 
+export const dynamic = "force-dynamic"
+
 export const metadata: Metadata = {
   title: "Leaderboard",
   description:
